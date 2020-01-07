@@ -25,7 +25,7 @@ RUN mkdir c:\sqlbinaries
 
 #copy scripts 
 COPY ./scripts/sql_server_installation.ps1 /
-COPY ./binaries/ /c:/sqlbinaries/
+#COPY ./binaries/ /c:/sqlbinaries/
 COPY ./config/ /C:/ITSOE/Build/
 
 #run scripts
