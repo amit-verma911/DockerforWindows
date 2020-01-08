@@ -24,23 +24,23 @@ RUN mkdir c:\sqlscript
 
 #copy scripts 
 COPY ./scripts/sql_server_installation.ps1 /
-COPY ./scripts/azlogin.ps1 /
-COPY ./scripts/blobdownload.ps1 /
+COPY ./scripts/azscript.ps1 /
+#COPY ./scripts/blobdownload.ps1 /
 
 #COPY ./binaries/ /c:/sqlbinaries/
 COPY ./config/ /C:/ITSOE/Build/
 
 WORKDIR C:/
 
-RUN powershell -command \
-    Install-PackageProvider -Name NuGet -Force;
-RUN powershell -command \    
-    Install-Module -Name Az -AllowClobber -Scope AllUsers -Force ;
+#RUN powershell -command \
+#    Install-PackageProvider -Name NuGet -Force;
+#RUN powershell -command \    
+#    Install-Module -Name Az -AllowClobber -Scope AllUsers -Force ;
 #RUN Powershell -Command Import-Module AzureRM ;
 
 
-RUN ./azlogin.ps1
-RUN ./blobdownload.ps1
+RUN ./azscript.ps1
+#RUN ./blobdownload.ps1
 
 RUN mkdir sqlserverinstalltionalfiles \
     tar -zxf 'sqlserverinstalltionalfiles.zip' sqlserverinstalltionalfiles -F:* \
